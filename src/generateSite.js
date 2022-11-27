@@ -1,5 +1,11 @@
 // Create a function to generate site
+const card = require("../lib/Card");
+
 function generateSite(data) {
+  data.forEach((element) => {
+    card.name = element.name;
+    console.log(element.name);
+  });
   return `<!DOCTYPE html>
   <html lang="en">
     <head>
@@ -17,14 +23,18 @@ function generateSite(data) {
     </head>
   
     <body>
-
-<a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
-<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-<p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-</a>
-
+      <div
+        class="grid mx-auto h-40 content-center text-center text-white bg-green-800 py-8 mb-6 text-4xl"
+      >
+        Team Roster
+      </div>
+      <div
+        class="card grid mx-10 gap-8 md:grid-cols-3 grid-cols-1 align-items-center justify-self-center"
+      >${card}</div>
+  
       <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
     </body>
-  </html>`;
+  </html>
+  `;
 }
 module.exports = generateSite;
